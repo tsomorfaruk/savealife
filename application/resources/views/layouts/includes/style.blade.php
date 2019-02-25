@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="{{asset('/')}}assets/style/jquery-ui.css">
 <link rel="stylesheet" href="{{asset('/')}}assets/style/stylesheet.css">
 {{--<link rel="stylesheet" href="{{asset('/')}}assets/style/ie-9.css">--}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 <!--[if lt IE 10]>
 <![endif]-->

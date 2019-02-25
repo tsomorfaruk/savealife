@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-md-10 ">
                     <div class="for-be-dropdowns">
-                        <form  action="{{url('/search-donor')}}" method="get">
+                        <form action="{{url('/search-donor')}}" method="get">
                             @csrf
                             <select name="blood_group" class="be-drop-down">
                                 <option class="filter" value="" disabled selected>Blood Group</option>
                                 <option value="A+" style="min-height: 15cm;">A+</option>
-                                <option  value="A-">A-</option>
+                                <option value="A-">A-</option>
                                 <option value="B+">B+</option>
                                 <option value="B-">B-</option>
                                 <option value="O+">O+</option>
@@ -98,28 +98,54 @@
 
                 <div class="col-md-10 col-md-push-2">
                     <div id="container-mix" class="be-user-wrapper row">
-                        @foreach($search_user as $user)
-                        <div  class="mix category-4 custom-column-5">
-                            <div class="be-user-block style-2">
-                                <a class="be-ava-user style-2" href="#">
-                                    <img src="{{asset('/')}}assets/img/blood_drop.jpg" alt="">
-                                </a>
-                                <div class="be-user-counter">
-                                    <div class="c_number">10</div>
-                                    <div class="c_text">times</div>
+                        @foreach($search_donor as $donor)
+                            @foreach($posts as $post)
+                                <div class="mix category-4 custom-column-5">
+                                    <div class="be-user-block style-2">
+                                        <a class="be-ava-user style-2" href="#">
+                                            <img src="{{asset('/')}}assets/img/blood_drop.jpg" alt="">
+                                        </a>
+                                        <div class="be-user-counter">
+                                            <div class="c_number">10</div>
+                                            <div class="c_text">times</div>
+                                        </div>
+                                        <a href="#" class="be-use-name">{{$donor->name}}</a>
+                                        <p class="be-user-info">{{$donor->city}} </p>
+                                            <div class="be-text-tags">
+                                            <h3 style="color: #f00;"><b>{{$donor->blood_group}}</b></h3>
+                                        </div>
+                                        <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
+                                        <a class="btn color-1 size-2 hover-1 search-donor" href="#" id="{{$donor->id}}">Request</a>
+                                    </div>
                                 </div>
-                                <a href="#" class="be-use-name">{{$user->name}}</a>
-                                <p class="be-user-info">{{$user->city}}</p>
-                                <div class="be-text-tags">
-                                    <h3 style="color: #f00;"><b>{{$user->blood_group}}</b></h3>
-                                </div>
-                                <a class="btn color-1 size-2 hover-1" href="{{url('/request/id=').$user->id}}">Request</a>
-                            </div>
-                        </div>
                             @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).on('click', '.search-donor', function () {
+            var donor_id = $(this).attr("id");
+            var post_id = $('#post_id').attr("value");
+            $(this).addClass('disabled');
+            $.ajax({
+                url: "{{URL::to('request')}}",
+                method: 'get',
+                data: {
+                    id: donor_id,
+                    post_id: post_id,
+                    '_token': $('input[name=_token]').val(),
+                },
+                dataType: 'json',
+                success: function (data) {
+                    $(this).removeClass('disabled');
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
+    </script>
 @endsection

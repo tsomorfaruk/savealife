@@ -26,9 +26,9 @@ Route::group(['middleware'=>'otp'], function ()
 {
     Route::get('/home', 'HomeController@index')->name('home');
     //Route::post('/home', 'PostController@storePost');
-    Route::get('/send-request', 'PostController@sendRequest');
     Route::get('/search-donor', 'PostController@searchDonor');
-    Route::get('/request/{id}', 'PostController@requestDonor');
+    Route::get('/request', 'PostController@requestDonor');
+    Route::get('/send-request', 'PostController@sendRequest');
 
 });
 
