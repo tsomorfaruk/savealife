@@ -46,64 +46,108 @@
                                         class="stat-counter">0</span></div>
                         </div>
                     </div>
-                    <div class="be-desc-block">
-                        <div class="be-desc-author">
-                            <div class="be-desc-label">About Me</div>
-                            <div class="clearfix"></div>
-                            <div class="be-desc-text">
-                                Nam sit amet massa commodo, tristique metus at, consequat turpis. In vulputate justo at
-                                auctor mollis. Aliquam non sagittis tortor. Duis tristique suscipit risus, quis facilisis
-                                nisl congue vitae. Nunc varius pellentesque scelerisque. Etiam quis massa vitae lectus
-                                placerat ullamcorper pellentesque vel nisl.
-                            </div>
-                        </div>
-                        <div class="be-desc-author">
-                            <div class="be-desc-label">My Values</div>
-                            <div class="clearfix"></div>
-                            <div class="be-desc-text">
-                                Sed dignissim scelerisque pretium. Vestibulum vel lacus laoreet nunc fermentum maximus.
-                                Proin id sodales sem, at consectetur urna. Proin vestibulum, erat a hendrerit sodales, nulla
-                                libero ornare dolor.
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn full color-1 size-1 hover-1"><i class="fa fa-plus"></i>add sections</a>
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <div class="tab-wrapper style-1">
                         <div class="tab-nav-wrapper">
                             <div class="nav-tab  clearfix">
                                 <div class="nav-tab-item active">
-                                    <span>Projects</span>
+                                    <span>Active Post</span>
+                                </div>
+                                <div class="nav-tab-item ">
+                                    <span>Completed Post</span>
+                                </div>
+                                <div class="nav-tab-item ">
+                                    <span>Canceled Post</span>
                                 </div>
                             </div>
                         </div>
                         <div class="tabs-content clearfix">
                             <div class="tab-info active">
                                 <div class="row">
-                                    <div class="col-ml-12 col-xs-6 col-sm-4">
-                                        <div class="be-post">
-                                            <a href="page1.html" class="be-img-block">
-                                                <img src="img/p15.jpg" alt="omg">
-                                            </a>
-                                            <a href="page1.html" class="be-post-title">Garry Simpson - Bridges - Intelligent
-                                                Life Magazinen</a>
-                                            <span>
-												<a href="page1.html" class="be-post-tag">Interaction Design</a>,
-												<a href="page1.html" class="be-post-tag">UI/UX</a>,
-												<a href="page1.html" class="be-post-tag">Web Design</a>
-											</span>
-                                            <div class="author-post">
-                                                <img src="img/a1.png" alt="" class="ava-author">
-                                                <span>by <a href="page1.html">Hoang Nguyen</a></span>
+                                    @if(count($active_posts)== 0)
+                                        <p>You have no active post</p>
+                                    @else
+                                        @foreach($active_posts as $active_post)
+                                            <div class="col-ml-12 col-xs-6 col-sm-4">
+                                                <p>{{ Session::get('post_message') }}</p>
+                                                <div class="be-post">
+                                                    <a href="page1.html" class="be-img-block">
+                                                        <img src="img/p1.jpg" alt="omg">
+                                                    </a>
+                                                    <a href="#" class="be-post-title">{{$active_post->blood_group}}</a>
+
+                                                    <div class="author-post">
+                                                        <img src="img/a1.png" alt="" class="ava-author">
+                                                        <span>by <a href="#">{{$active_post->city}}</a></span>
+                                                    </div>
+                                                    <div class="info-block">
+                                                        <form action="{{url('/cancel-post')}}" method="POST" style="float: left">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger" name="post_id" value="{{$active_post->id}}">Cancel</button>
+                                                        </form>
+                                                        <form action="{{url('/complete-post')}}" method="POST" style="float: left">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success" name="post_id" value="{{$active_post->id}}">Complete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="info-block">
-                                                <span><i class="fa fa-thumbs-o-up"></i> 360</span>
-                                                <span><i class="fa fa-eye"></i> 789</span>
-                                                <span><i class="fa fa-comment-o"></i> 20</span>
+                                        @endforeach
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="tab-info">
+                                <div class="row">
+                                    @if(count($complete_posts)== 0)
+                                        <p>You have no completed post</p>
+                                    @else
+                                        @foreach($complete_posts as $complete_post)
+                                            <div class="col-ml-12 col-xs-6 col-sm-4">
+                                                <div class="be-post">
+                                                    <a href="" class="be-img-block">
+                                                        <img src="img/p8.jpg" alt="omg">
+                                                    </a>
+                                                    <a href="" class="be-post-title">{{$complete_post->blood_group}}</a>
+
+                                                    <div class="author-post">
+                                                        <img src="img/a7.png" alt="" class="ava-author">
+                                                        <span>by <a href="#">{{$complete_post->city}}</a></span>
+                                                    </div>
+                                                    <div class="info-block" style="background-color: #10ce30;">
+                                                        <h3 style="color: #fff; text-align: center">Completed</h3>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="tab-info">
+                                <div class="row">
+                                    @if(count($cancel_posts)== 0)
+                                        <p>You have no canceled post.</p>
+                                    @else
+                                        @foreach($cancel_posts as $cancel_post)
+                                            <div class="col-ml-12 col-xs-6 col-sm-4">
+                                                <div class="be-post">
+                                                    <a href="" class="be-img-block">
+                                                        <img src="img/p8.jpg" alt="omg">
+                                                    </a>
+                                                    <a href="" class="be-post-title">{{$cancel_post->blood_group}}</a>
+
+                                                    <div class="author-post">
+                                                        <img src="img/a7.png" alt="" class="ava-author">
+                                                        <span>by <a href="#">{{$cancel_post->city}}</a></span>
+                                                    </div>
+                                                    <div class="info-block" style="background-color: #f90c47;">
+                                                        <h3 style="color: #fff; text-align: center">Canceled</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

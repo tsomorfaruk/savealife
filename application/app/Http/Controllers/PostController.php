@@ -14,48 +14,63 @@ class PostController extends Controller
     public function searchDonor(Request $request)
     {
         $user_id = Auth::user()->id;
-        $post = new Post();
-        $post->user_id = $user_id;
-        $post->blood_group = $request->blood_group;
-        $post->city = $request->city;
-        $post->hospital = '';
-        $post->time = '';
-        $post->quantity = '';
-        $post->status = 1;
-        $post->save();
 
-        $posts = Post::where('user_id', '=', $user_id)->get();
-        $search_donor = User::where('blood_group', '=', $request->blood_group)
-            ->where('city', '=', $request->city)
-            ->where('id', '!=', $user_id)->get();
-        return view('search-donor', ['search_donor' => $search_donor, 'posts' => $posts]);
+        $posts = Post::where('user_id', '=', $user_id)
+            ->where('status' , '=', '1')->get();
+        //dd(count($posts));
+        if (count($posts)==0)
+        {
+            $post = new Post();
+            $post->user_id = $user_id;
+            $post->blood_group = $request->blood_group;
+            $post->city = $request->city;
+            $post->hospital = '';
+            $post->time = '';
+            $post->quantity = '';
+            $post->status = 1;
+            $post->save();
+            $posts = Post::where('user_id', '=', $user_id)->get();
+            $search_donor = User::where('blood_group', '=', $request->blood_group)
+                ->where('city', '=', $request->city)
+                ->where('id', '!=', $user_id)->get();
+            return view('search-donor', ['search_donor' => $search_donor, 'posts' => $posts]);
+        }
+        else
+        {
+            return redirect('home')->with('message', 'Already one post created. Please cancel old post and newly search.');
+        }
+
+
     }
 
     public function sendRequest()
     {
         $user_id = Auth::user()->id;
-        $posts = Post::where('user_id', '=', $user_id)->get();
-        if ($posts == NULL) {
-            return view('user.send-request');
-        } else{
+        $posts = Post::where('user_id', '=', $user_id)
+            ->where('status', '=', '1')->get();
+        if (count($posts) == 0) {
+            return redirect('home')->with('message', 'You have no send request.');
+        }
+        else{
             foreach ($posts as $post) {
                 $post_id = $post->id;
                 $postdonors = PostDonor::where('post_id', '=', $post_id)->get();
-
+            }
+            if (count($postdonors) != 0)
+            {
+                foreach ($postdonors as $postdonor) {
+                    $donor_id = $postdonor->user_id;
+                    $donor = User::find($donor_id)->postdonor;
+                    $donor_list[] = $donor;
+                }
+                return view('user.send-request', ['donor_list' => $donor_list]);
+            }
+            else
+            {
+                return redirect('home')->with('message', 'You have no send request.');
             }
 
-            foreach ($postdonors as $postdonor) {
-                $donor_id = $postdonor->user_id;
-                $postdonor_id = $postdonor->id;
-                $donor = User::where('id', '=', $donor_id)->get();
-                $donor_list[] = $donor;
-            }
-            //dd($donor_list);
-            return view('user.send-request', ['donor_list' => $donor_list]);
         }
-
-
-
     }
 
     public function requestDonor(Request $request)
@@ -69,6 +84,33 @@ class PostController extends Controller
         $postdonor->save();
 
         echo json_encode($post_id);
+    }
+
+    public function cancelRequest(Request $request)
+    {
+        $id = $request->input('id');
+        $postdonor = PostDonor::find($id);
+        $postdonor->status = 0;
+        $postdonor->save();
+        echo json_encode($id);
+    }
+
+    public function cancelPost(Request $request)
+    {
+        $post_id = $request->post_id;
+        $post = Post::find($post_id);
+        $post->status = 0;
+        $post->save();
+        return redirect('/my-profile')->with('post_message','Your post has been canceled.');
+    }
+
+    public function completePost(Request $request)
+    {
+        $post_id = $request->post_id;
+        $post = Post::find($post_id);
+        $post->status = 2;
+        $post->save();
+        return redirect('/my-profile')->with('post_message','Your post has been completed.');
     }
 
 }

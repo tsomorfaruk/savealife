@@ -96,21 +96,6 @@
                             </select>
                             <input type="submit" class="be-drop-down" name="submit" value="Search">
                         </form>
-                        <div class="be-drop-down">
-                            <i class="icon-features"></i>
-                            <span class="be-dropdown-content">Blood Group
-							</span>
-                            <ul class="drop-down-list">
-                                <li class="filter" data-filter=".category-2" value="A+"><a>A+</a></li>
-                                <li class="filter" data-filter=".category-2" value="A-"><a>A-</a></li>
-                                <li class="filter" data-filter=".category-2" value="B+"><a>B+</a></li>
-                                <li class="filter" data-filter=".category-2" value="B-"><a>B-</a></li>
-                                <li class="filter" data-filter=".category-2" value="AB+"><a>AB+</a></li>
-                                <li class="filter" data-filter=".category-2" value="AB-"><a>AB-</a></li>
-                                <li class="filter" data-filter=".category-2" value="O+"><a>O+</a></li>
-                                <li class="filter" data-filter=".category-2" value="O-"><a>O-</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
