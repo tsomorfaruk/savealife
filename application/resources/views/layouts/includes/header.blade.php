@@ -113,11 +113,10 @@
                 <button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
                 <ul class="header-menu" id="one">
                     <li><a href="{{url('/')}}">Home</a></li>
+                    <li><a href="{{url('/blood-post')}}">Blood Post</a></li>
                     <li><a href="#">Top Donor</a></li>
-                    <li><a href="#">Donor List</a></li>
                     <li><a href="{{url('/organization')}}">Organization</a></li>
                     <li><a href="{{url('/contact-us')}}">Contact us</a></li>
-                    <li><a href="#">News</a></li>
                     <li><a href="{{url('/team')}}">Team</a></li>
                 </ul>
             </div>

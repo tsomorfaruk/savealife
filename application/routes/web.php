@@ -30,8 +30,13 @@ Route::group(['middleware'=>'otp'], function ()
     Route::get('/request', 'PostController@requestDonor');
     Route::get('/send-request', 'PostController@sendRequest');
     Route::get('/cancel-request', 'PostController@cancelRequest');
+    Route::get('/accept-request', 'PostController@acceptRequest');
+    Route::get('/complete-request', 'PostController@completeRequest');
     Route::post('/cancel-post', 'PostController@cancelPost');
     Route::post('/complete-post', 'PostController@completePost');
+
+
+    Route::get('/blood-post', 'PostController@bloodPost');
 
 });
 
