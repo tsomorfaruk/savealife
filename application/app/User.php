@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];*/
 
     public function postdonor(){
-        return $this->hasMany(PostDonor::class);
+        return $this->hasMany('App\PostDonor', 'id', 'donor_id');
     }
 }

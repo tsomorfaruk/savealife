@@ -29,6 +29,7 @@ Route::group(['middleware'=>'otp'], function ()
     Route::get('/search-donor', 'PostController@searchDonor');
     Route::get('/request', 'PostController@requestDonor');
     Route::get('/send-request', 'PostController@sendRequest');
+    Route::get('/receive-request', 'PostController@receiveRequest');
     Route::get('/cancel-request', 'PostController@cancelRequest');
     Route::get('/accept-request', 'PostController@acceptRequest');
     Route::get('/complete-request', 'PostController@completeRequest');

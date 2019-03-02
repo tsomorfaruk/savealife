@@ -16,8 +16,9 @@ class CreatePostDonorsTable extends Migration
         Schema::create('post_donors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id');
-            $table->integer('user_id');
+            $table->integer('donor_id');
             $table->boolean('status');
+            $table->boolean('donorstatus');
             $table->timestamps();
         });
     }
