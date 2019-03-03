@@ -12,194 +12,213 @@
                     <div id="container-mix" class="be-user-wrapper row accept-message">
                         @foreach($posts as $post)
                             @foreach($post->donors as $donor)
-                            @if($post->blood_group == 'A+' && $donor->id != Auth::user()->id)
-                                <div class="mix category-1 custom-column-5">
+                                @if($post->blood_group == 'A+' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-1 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
-                        @endforeach
+                                @endif
+                            @endforeach
                         @endforeach
                         @foreach($posts as $post)
-                            @if($post->blood_group == 'A-')
-                                <div class="mix category-2 custom-column-5">
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'A-' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-2 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
                         @foreach($posts as $post)
-                                @foreach($post->donors as $donor)
-                                    @if($post->blood_group == 'A+' && $donor->id != Auth::user()->id)
-
-                                <div class="mix category-3 custom-column-5">
-
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
-
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                            @if($post->blood_group == 'B+')
+                                    <div class="mix category-3 custom-column-5">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <input type="hidden" id="{{  $post->id }} " class="post-id">
+                                            @if($post->donors->contains('donor_id','!=',\Illuminate\Support\Facades\Auth::id())))
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                                @else
+                                                <a class="btn color-1 size-2 hover-1" href="#" disabled="">Requested</a>
+                                            @endif
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <input type="hidden" id="{{  $post->id }} " class="post-id">
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                                id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
-                        @endforeach
-                        @endforeach
-                        @foreach($posts as $post)
-                            @if($post->blood_group == 'B-')
-                                <div class="mix category-4 custom-column-5">
-
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
-
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
-                                        </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
-                                    </div>
-                                </div>
-                            @endif
+                                @endif
                         @endforeach
                         @foreach($posts as $post)
-                            @if($post->blood_group == 'O+')
-                                <div class="mix category-5 custom-column-5">
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'B-' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-4 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
                         @foreach($posts as $post)
-                            @if($post->blood_group == 'O-')
-                                <div class="mix category-6 custom-column-5">
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'O+' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-5 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
                         @foreach($posts as $post)
-                            @if($post->blood_group == 'AB+')
-                                <div class="mix category-7 custom-column-5">
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'O-' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-6 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
                         @foreach($posts as $post)
-                            @if($post->blood_group == 'AB-')
-                                <div class="mix category-8 custom-column-5">
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'AB+' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-7 custom-column-5">
 
-                                    <div class="be-user-block style-2">
-                                        <a class="be-ava-user style-2" href="#">
-                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
-                                        </a>
-                                        <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
-                                        <div class="be-text-tags">
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> Needed </b></h4>
-                                        </div>
-
-                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
-                                           id="{{Auth::user()->id}}">Donate</a>
-                                        <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span></p>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                        @foreach($posts as $post)
+                            @foreach($post->donors as $donor)
+                                @if($post->blood_group == 'AB-' && $donor->id != Auth::user()->id)
+                                    <div class="mix category-8 custom-column-5">
+
+                                        <div class="be-user-block style-2">
+                                            <a class="be-ava-user style-2" href="#">
+                                                <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                            </a>
+                                            <p class="be-user-info"><span>Place: {{  $post->city }}</span></p>
+                                            <div class="be-text-tags">
+
+                                                <h4 style="color: red"><b>{{  $post->blood_group }} </b></h4>
+                                            </div>
+                                            <div class="info-block">
+                                                <h4 style="color: #f90c47"><b> Needed </b></h4>
+                                            </div>
+
+                                            <a class="btn color-1 size-2 hover-1 request-donor" href="#"
+                                               id="{{Auth::user()->id}}">Donate</a>
+                                            <p class="be-user-info"><span>Posted By: {{ $post->post_user->name }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         @endforeach
                     </div>
                 </div>
@@ -224,30 +243,29 @@
         </div>
         <br>
     </div>
-        <script>
-            $(document).on('click', '.accept-donor', function () {
-                var donor_id = $(this).attr("id");
-                var post_id = $('.post-id').attr("id");
-                $(this).addClass('disabled');
-                $.ajax({
-                    url: "{{URL::to('accept-request')}}",
-                    method: 'get',
-                    data: {
-                        donor_id: donor_id,
-                        post_id: post_id,
-                        '_token': $('input[name=_token]').val(),
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        $(this).removeClass('disabled');
-                        $('.accept-message').html(data);
-                    }
-                })
-            });
-        </script>
-        <script type="text/javascript">
-            $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
-        </script>
+    <script>
+        $(document).on('click', '.request-donor', function () {
+            var donor_id = $(this).attr("id");
+            var post_id = $('.post-id').attr("id");
+            $(this).addClass('disabled');
+            $.ajax({
+                url: "{{URL::to('donor-request')}}",
+                method: 'get',
+                data: {
+                    donor_id: donor_id,
+                    post_id: post_id,
+                    '_token': $('input[name=_token]').val(),
+                },
+                dataType: 'json',
+                success: function (data) {
+                    //$('.custom-column-5').hide();
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
+    </script>
 @endsection
 
 

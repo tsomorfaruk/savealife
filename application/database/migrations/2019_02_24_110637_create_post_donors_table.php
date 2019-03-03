@@ -18,7 +18,7 @@ class CreatePostDonorsTable extends Migration
             $table->integer('post_id');
             $table->integer('donor_id');
             $table->boolean('status');
-            $table->boolean('donorstatus');
+            $table->boolean('donorstatus')->nullable();
             $table->timestamps();
         });
     }

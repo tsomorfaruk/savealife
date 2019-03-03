@@ -12,7 +12,7 @@
                     <div id="container-mix" class="be-user-wrapper row">
                         @foreach($posts as $post)
                             @forelse($post->donors as $donor)
-                                @if($donor->status == 1 && $donor->donorstatus == 1)
+                                @if($donor->status == 1 )
                                     <div class="mix category-1 custom-column-5 disable-class">
                                         <div class="be-user-block style-2">
                                             <a class="be-ava-user style-2" href="#">
@@ -43,7 +43,7 @@
                         @endforeach
                         @foreach($posts as $post)
                             @forelse($post->donors as $donor)
-                                @if($donor->status == 2 && $donor->donorstatus == 1)
+                                @if($donor->status == 2 )
                                     <div class="mix category-2 custom-column-5">
                                         <div class="be-user-block style-2">
                                             <a class="be-ava-user style-2" href="#">
@@ -79,7 +79,7 @@
                         @endforeach
                         @foreach($posts as $post)
                             @forelse($post->donors as $donor)
-                                @if($donor->status == 3 && $donor->donorstatus == 1)
+                                @if($donor->status == 3 )
                                     <div class="mix category-3 custom-column-5">
                                         <div class="be-user-block style-2">
                                             <a class="be-ava-user style-2" href="#">
@@ -110,7 +110,7 @@
                         @endforeach
                         @foreach($posts as $post)
                             @forelse($post->donors as $donor)
-                                @if($donor->status == 0 && $donor->donorstatus == 1)
+                                @if($donor->status == 0 )
                                     <div class="mix category-4 custom-column-5">
                                         <div class="be-user-block style-2">
                                             <a class="be-ava-user style-2" href="#">

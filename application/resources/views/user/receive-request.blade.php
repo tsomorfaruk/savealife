@@ -10,72 +10,35 @@
                 <br>
                 <div class="col-md-10 col-md-push-2">
                     <div id="container-mix" class="be-user-wrapper row">
-                        @foreach($posts as $post)
-                            @forelse($post->donors as $donor)
-                                @if($donor->status == 2 && $donor->donorstatus == 2)
-                                    <div class="mix category-2 custom-column-5">
-                                        <div class="be-user-block style-2">
-                                            <a class="be-ava-user style-2" href="#">
-                                                <img src="{{asset('/')}}assets/img/blood_drop.jpg" alt="">
-                                            </a>
-                                            <div class="be-user-counter">
-                                                <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
-                                            </div>
-                                            <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
+                        @foreach($postdonors as $postdonor)
+                                @if($postdonor->post->status == 1)
+                                <div class="mix category-3 custom-column-5">
+                                    <div class="be-user-block style-2">
+                                        <a class="be-ava-user style-2" href="#">
+                                            <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
+                                        </a>
+                                        <p class="be-user-info"><span>Place: {{$postdonor->post->city}}</span></p>
+                                        <div class="be-text-tags">
 
-                                            <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
-                                            <div class="be-text-tags">
-                                                <h3 style="color: #f00;">
-                                                    <b>{{$donor->user->blood_group}}</b>
-                                                </h3>
-                                            </div>
-                                            <a style="float: left" class="btn color-1 size-2 hover-1 complete-donor"
-                                               href="#"
-                                               id="{{$donor->id}}">Complete</a>
-                                            <a style="float: right" class="btn btn-danger size-2 hover-1 cancel-donor"
-                                               href="#"
-                                               id="{{$donor->id}}">Cancel</a>
-
+                                            <h4 style="color: red"><b>{{$postdonor->post->blood_group}} </b></h4>
                                         </div>
-                                    </div>
-                                @endif
-                            @empty
-                                donor not found
-                            @endforelse
-                        @endforeach
-                        @foreach($posts as $post)
-                            @forelse($post->donors as $donor)
-                                @if($donor->status == 3 && $donor->donorstatus == 2)
-                                    <div class="mix category-3 custom-column-5">
-                                        <div class="be-user-block style-2">
-                                            <a class="be-ava-user style-2" href="#">
-                                                <img src="{{asset('/')}}assets/img/blood_drop.jpg" alt="">
-                                            </a>
-                                            <div class="be-user-counter">
-                                                <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
-                                            </div>
-                                            <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
-
-                                            <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
-                                            <div class="be-text-tags">
-                                                <h3 style="color: #f00;">
-                                                    <b>{{$donor->user->blood_group}}</b>
-                                                </h3>
-                                            </div>
-                                            <a class="btn btn-danger size-2 hover-1 cancel-donor" href="#"
-                                               id="">Completed</a>
+                                        <div class="info-block">
+                                            <h4 style="color: #f90c47"><b> Needed {{$postdonor->id}}</b></h4>
                                         </div>
+                                        <input type="hidden" id="{{  $postdonor->post->id }} " class="post-id">
+                                        @if($postdonor->status != 2)
+                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                           id="{{$postdonor->id}}">Accept</a>
+                                        @else
+                                        <a class="btn color-1 size-2 hover-1" href="#" disabled="">Accepted</a>
+                                        @endif
+                                        <a class="btn color-1 size-2 hover-1 accept-donor" href="#"
+                                           id="{{$postdonor->id}}">Cancel</a>
+                                        <p class="be-user-info"><span>Posted By: {{ $postdonor->post->post_user->name}}</span>
+                                        </p>
                                     </div>
+                                </div>
                                 @endif
-                            @empty
-                                donor not found
-                            @endforelse
                         @endforeach
                     </div>
                 </div>
@@ -97,11 +60,11 @@
         <br>
     </div>
         <script>
-            $(document).on('click', '.complete-donor', function () {
+            $(document).on('click', '.accept-donor', function () {
                 var postdonor_id = $(this).attr("id");
                 $(this).addClass('disabled');
                 $.ajax({
-                    url: "{{URL::to('complete-request')}}",
+                    url: "{{URL::to('accept-request')}}",
                     method: 'get',
                     data: {
                         id: postdonor_id,

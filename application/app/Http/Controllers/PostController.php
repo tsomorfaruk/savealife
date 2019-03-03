@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PostDonor;
 use App\User;
+use function foo\func;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,7 @@ class PostController extends Controller
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id', '=', $user_id)
             ->whereHas('donors')
-            ->with(['post_user','donors'=>function($q){$q->with(['user']);}])->where('status', '=', '1')->get();
+            ->with(['post_user','donors'=>function($q){$q->with(['user']);}])->where('status', 1)->get();
 
 
         return view('user.send-request', ['posts' => $posts]);
@@ -64,7 +65,6 @@ class PostController extends Controller
         $postdonor->post_id = $post_id;
         $postdonor->donor_id = $id;
         $postdonor->status = 1;
-        $postdonor->donorstatus = 1;
         $postdonor->save();
 
         echo json_encode($post_id);
@@ -75,33 +75,17 @@ class PostController extends Controller
         $id = $request->input('id');
         $postdonor = PostDonor::find($id);
         $postdonor->status = 0;
-        $postdonor->donorstatus = 0;
         $postdonor->save();
         echo json_encode($id);
     }
 
     public function acceptRequest(Request $request)
     {
-        $donor_id = $request->input('donor_id');
-        $post_id = $request->input('post_id');
-
-        $postdonors = PostDonor::where('status', '=', '2')
-            ->where('donorstatus', '!=', '0')->with(['user'])->get();
-        //dd($postdonors);
-        if (count($postdonors) == 0) {
-            $postdonor = new PostDonor();
-            $postdonor->donor_id = $donor_id;
-            $postdonor->post_id = $post_id;
-            $postdonor->status = 2;
-            $postdonor->donorstatus = 2;
-            $postdonor->save();
-            echo json_encode($donor_id);
-        }
-        else
-        {
-            echo json_encode('This post already accepted from you.');
-        }
-
+        $postdonor_id = $request->input('id');
+        $postdonor = PostDonor::find($postdonor_id);
+        $postdonor->status = 2;
+        $postdonor->save();
+        echo json_encode($postdonor_id);
     }
 
     public function completeRequest(Request $request)
@@ -118,7 +102,6 @@ class PostController extends Controller
         $post_id = $request->post_id;
         $post = Post::find($post_id);
         $post->status = 0;
-        $post->donorstatus = 0;
         $post->save();
         return redirect('/my-profile')->with('post_message', 'Your Request has been canceled.');
     }
@@ -137,18 +120,32 @@ class PostController extends Controller
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id', '!=', $user_id)
             ->where('status', '=', '1')
-            ->with(['post_user'])->get();
-
+            ->with(['post_user', 'donors'])->get();
         return view('blood-post', ['posts' => $posts]);
     }
 
     public function receiveRequest()
     {
         $user_id = Auth::user()->id;
-        $posts = Post::whereHas('donors')
-            ->with(['post_user','donors'=>function($q){$q->with(['user']);}])->where('status', '=', '1')->get();
+        $postdonors = PostDonor::whereHas('post')
+            ->with(['post'=>function($q){$q->with(['post_user']);}])
+            ->where('donor_id', '=', $user_id)->get();
+        /*$posts = Post::whereHas('donors')
+            ->with(['post_user','donors'=>function($q){$q->with(['user']);}])->where('status', '=', '1')->get();*/
 
-        return view('user.receive-request', ['posts' => $posts]);
+        return view('user.receive-request', ['postdonors' => $postdonors]);
+    }
+
+    public function donorRequest(Request $request)
+    {
+        $donor_id = $request->input('donor_id');
+        $post_id = $request->input('post_id');
+            $postdonor = PostDonor::where('post_id',$post_id)->where('donor_id', $donor_id)->get();
+            $postdonor->donor_id = $donor_id;
+            $postdonor->post_id = $post_id;
+            $postdonor->status = 2;
+            $postdonor->save();
+            echo json_encode($donor_id);
     }
 
 }
