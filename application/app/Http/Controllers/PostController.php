@@ -140,12 +140,12 @@ class PostController extends Controller
     {
         $donor_id = $request->input('donor_id');
         $post_id = $request->input('post_id');
-            $postdonor = PostDonor::where('post_id',$post_id)->where('donor_id', $donor_id)->get();
-            $postdonor->donor_id = $donor_id;
-            $postdonor->post_id = $post_id;
-            $postdonor->status = 2;
-            $postdonor->save();
-            echo json_encode($donor_id);
+        $postdonor = new PostDonor();
+        $postdonor->donor_id = $donor_id;
+        $postdonor->post_id = $post_id;
+        $postdonor->status = 2;
+        $postdonor->save();
+        echo json_encode($donor_id);
     }
 
 }

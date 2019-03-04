@@ -26,7 +26,7 @@
                                             {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
 
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
+                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -57,7 +57,7 @@
                                             {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
 
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
+                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -93,7 +93,7 @@
                                             {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
 
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
+                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -124,7 +124,7 @@
                                             {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
 
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info"></p>
+                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
