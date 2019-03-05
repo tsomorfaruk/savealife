@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('blood_group');
             $table->string('mobile');
             $table->string('city');
+            $table->string('imageUrl')->nullable();
             $table->string('otp')->nullable();
             $table->string('password');
             $table->rememberToken();

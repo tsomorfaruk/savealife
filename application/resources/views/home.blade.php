@@ -11,21 +11,21 @@
         <p>{{ Session::get('message') }}</p>
         <div class="container-fluid cd-main-content custom-container">
             <div class="row">
-                <div class="col-md-10 ">
+                <div class="col-md-10 text-center" style="float: none; margin: 0 auto">
                     <div class="for-be-dropdowns">
                         <form  action="{{url('/search-donor')}}" method="get">
                             @csrf
-                                <select name="blood_group" class="be-drop-down">
-                                    <option class="filter" value="" disabled selected>Blood Group</option>
-                                    <option value="A+" style="min-height: 15cm;">A+</option>
-                                    <option  value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                </select>
+                            <select name="blood_group" class="be-drop-down">
+                                <option class="filter" value="" disabled selected>Blood Group</option>
+                                <option value="A+" style="min-height: 15cm;">A+</option>
+                                <option  value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
 
                             <select name="city" class="be-drop-down">
                                 <option class="filter" value="" disabled selected>City</option>

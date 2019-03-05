@@ -17,29 +17,37 @@
                                         <a class="be-ava-user style-2" href="#">
                                             <img src="{{asset('/')}}assets/img/ava_2.jpg" alt="">
                                         </a>
-                                        <p class="be-user-info"><span>Place: {{$postdonor->post->city}}</span></p>
+                                        <p class="be-user-info" style="color: #ad1637;"><span>Place: {{$postdonor->post->city}}</span></p>
                                         <div class="be-text-tags">
 
-                                            <h4 style="color: red"><b>{{$postdonor->post->blood_group}} </b></h4>
+                                            <h4 style="color: #ff637a"><b>{{$postdonor->post->blood_group}} </b></h4>
                                         </div>
-                                        <div class="info-block">
-                                            <h4 style="color: #f90c47"><b> {{ $postdonor->post->post_user->mobile}}</b></h4>
+                                        @if($postdonor->status == 2 || $postdonor->status == 3)
+                                        <div class="info-block donor_mobile">
+                                            <h4 style="color: #4286f4"><b> {{ $postdonor->post->post_user->mobile}}</b></h4>
                                             <p>Please contact this number</p>
                                         </div>
+                                            @else
+                                            <div class="info-block donor_mobile">
+                                                <h4 style="color: #4286f4"><b> Contact Hidden</b></h4>
+                                                <p>If you want contact, then contact with us</p>
+                                            </div>
+                                        @endif
                                         <input type="hidden" id="{{  $postdonor->post->id }} " class="post-id">
                                         @if($postdonor->status == 2)
-                                            <a class="btn color-1 size-2 hover-1" href="#" disabled="">Accepted</a>
-                                            <a class="btn color-1 size-2 hover-1 accept-donor btn-danger" href="#"
+                                            <a class="btn btn-success size-2" href="#" disabled="">Accepted</a>
+                                            <a class="btn color-1 size-2 cancel-donor" href="#"
                                                id="{{$postdonor->id}}">Cancel</a>
                                         @elseif($postdonor->status == 3)
-                                            <a class="btn color-1 size-2 hover-1 " href="#" disabled="">Completed</a>
+                                            <a class="btn btn-success size-2 hover-1 " href="#" disabled="">Completed</a>
                                             @elseif($postdonor->status == 0)
                                             <a class="btn color-1 size-2 hover-1" href="#" disabled="">Canceled</a>
                                             @else
-                                            <a class="btn color-1 size-2 hover-1 accept-donor" href="#" id="{{$postdonor->id}}">Accept</a>
+                                            <a class="btn btn-success size-2 accept-donor" href="#" id="{{$postdonor->id}}">Accept</a>
                                         @endif
-
-                                        <p class="be-user-info"><span>Posted By: {{ $postdonor->post->post_user->name}}</span>
+                                        <br>
+                                        <br>
+                                        <p class="be-user-info" style="color: #ad1637;"><span>Posted By: {{ $postdonor->post->post_user->name}}</span>
                                         </p>
                                     </div>
                                 </div>

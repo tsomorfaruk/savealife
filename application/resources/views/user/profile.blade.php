@@ -8,13 +8,14 @@
     <div id="content-block">
         <div class="container be-detail-container">
             <div class="row">
+                <p>{{ Session::get('message') }}</p>
                 <div class="col-xs-12 col-md-4 left-feild">
                     <div class="be-user-block style-3">
                         <div class="be-user-detail">
                             <a class="be-ava-user style-2" href="{{url('/my-profile')}}">
-                                <img src="{{asset('/')}}assets/img/ava_10.jpg" alt="">
+                                <img src="{{asset('').Auth::user()->imageUrl}}" alt="">
                             </a>
-                            <a class="be-ava-left btn color-1 size-2 hover-1" href="author-edit.html"><i
+                            <a class="be-ava-left btn color-1 size-2 hover-1" href="{{url('/my-profile/edit')}}"><i
                                         class="fa fa-pencil"></i>Edit</a>
                             <div class="be-ava-right btn btn-share color-4 size-2 hover-7">
                                 <i class="fa fa-share-alt"></i>share

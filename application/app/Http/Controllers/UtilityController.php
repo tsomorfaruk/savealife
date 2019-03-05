@@ -12,4 +12,9 @@ class UtilityController extends Controller
     {
         return view('contact-us');
     }
+
+    public function storeContact(Request $request)
+    {
+
+    }
 }

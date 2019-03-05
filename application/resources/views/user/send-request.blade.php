@@ -20,13 +20,12 @@
                                             </a>
                                             <div class="be-user-counter">
                                                 <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
+                                                <div class="c_number">times</div>
                                             </div>
                                             <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
-
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
+                                            <p >Contact Hidden</p>
+                                            <p class="be-user-info">If you want, please contact with us.</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -51,25 +50,24 @@
                                             </a>
                                             <div class="be-user-counter">
                                                 <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
+                                                <div class="c_number">times</div>
                                             </div>
                                             <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
-
-                                            <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
+                                            <a href="#" class="be-use-name">{{$donor->user->city}}</a >
+                                            <p >Contact: {{$donor->user->mobile}}</p>
+                                            <p class="be-user-info">Please contact with this number.</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
                                                 </h3>
                                             </div>
-                                            <a style="float: left" class="btn color-1 size-2 hover-1 complete-donor"
+                                            <a style="float: left" class="btn btn-success size-2 complete-donor"
                                                href="#"
                                                id="{{$donor->id}}">Complete</a>
-                                            <a style="float: right" class="btn btn-danger size-2 hover-1 cancel-donor"
+                                            <a style="float: right" class="btn btn-danger size-2 cancel-donor"
                                                href="#"
                                                id="{{$donor->id}}">Cancel</a>
-
+                                            <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 @endif
@@ -87,13 +85,12 @@
                                             </a>
                                             <div class="be-user-counter">
                                                 <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
+                                                <div class="c_number">times</div>
                                             </div>
                                             <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
-
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
+                                            <p>{{$donor->user->mobile}}</p>
+                                            <p class="be-user-info">You can contact with donor.</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -118,13 +115,12 @@
                                             </a>
                                             <div class="be-user-counter">
                                                 <div class="c_number">10</div>
-                                                <div class="c_text">times</div>
+                                                <div class="c_number">times</div>
                                             </div>
                                             <a href="#" class="be-use-name">{{$donor->user->name}}</a>
-                                            {{--<a href="#" class="be-use-name">{{$post->post_user->id}}</a>--}}
-
                                             <a href="#" class="be-use-name">{{$donor->user->city}}</a>
-                                            <p class="be-user-info">{{$donor->user->mobile}}</p>
+                                            <p >Contact Hidden</p>
+                                            <p class="be-user-info">If you want, please contact with us.</p>
                                             <div class="be-text-tags">
                                                 <h3 style="color: #f00;">
                                                     <b>{{$donor->user->blood_group}}</b>
@@ -134,6 +130,7 @@
                                                id="">Canceled</a>
                                         </div>
                                     </div>
+                                    <div class="clearfix"></div>
                                 @endif
                             @empty
                                 donor not found

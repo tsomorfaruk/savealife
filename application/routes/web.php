@@ -18,7 +18,10 @@ Route::get('/', function () {
 })->middleware('guest');
 Route::get('/organization','OrganizationController@index');
 Route::get('/my-profile', 'ProfileController@index');
+Route::get('/my-profile/edit', 'ProfileController@editProfile');
+Route::post('/my-profile/edit', 'ProfileController@updateProfile');
 Route::get('/contact-us', 'UtilityController@contactUs');
+Route::post('/contact-us', 'UtilityController@storeContact');
 Route::get('/team', function (){
     return view('team');
 });
