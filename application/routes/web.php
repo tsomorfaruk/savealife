@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->middleware('guest');
 Route::get('/organization','OrganizationController@index');
 Route::get('/my-profile', 'ProfileController@index');
+Route::get('/contact-us', 'UtilityController@contactUs');
 Route::get('/team', function (){
     return view('team');
 });
