@@ -2,23 +2,20 @@
 @section('title')
     <title>Save a Life</title>
 @endsection
-
-
 @section('content')
     <div id="content-block">
-        <br>
         <br>
 
         <div class="container-fluid cd-main-content custom-container">
             <div class="row">
                 <div class="col-md-10 text-center" style="float: none; margin: 0 auto">
                     <div class="for-be-dropdowns">
-                        <form  action="{{url('/search-donor')}}" method="get">
+                        <form action="{{url('/search-donor')}}" method="get">
                             @csrf
                             <select name="blood_group" class="be-drop-down">
                                 <option class="filter" value="" disabled selected>Blood Group</option>
                                 <option value="A+" style="min-height: 15cm;">A+</option>
-                                <option  value="A-">A-</option>
+                                <option value="A-">A-</option>
                                 <option value="B+">B+</option>
                                 <option value="B-">B-</option>
                                 <option value="O+">O+</option>
@@ -100,16 +97,43 @@
                 </div>
 
                 <div class="custom-container gallery-container">
-                    <div class="container">
-                            <div class="gallery-info">
-                                <h3 style="text-align: center"><p>{{ Session::get('message') }}</p></h3>
-                            </div>
-
-                    </div>
+                    <h4 style="text-align: center; color: #ff637a; padding-left: 30px">{{ Session::get('message') }}</h4>
                 </div>
             </div>
         </div>
+        <div class="container be-detail-container">
+            <h2 class="content-title">Useful News</h2>
+            <div class="blog-wrapper blog-grid">
 
+                <div class="row">
+                    @foreach($news as $single_news)
+                        <div class="grid-item col-xs-12 col-sm-6 col-md-4">
+                            <div class="blog-post">
+                                <div class="post-header clearfix">
+                                    <div class="post-date">
+                                        <i class="fa fa-clock-o"></i> {{$single_news->news_created_at}}
+                                    </div>
+                                    <div class="author-post">
+                                        <img src="{{asset('/')}}assets/img/a1.png" alt="" class="ava-author">
+                                        <span>by <a href="#">{{$single_news->news_created_by}}</a></span>
+                                    </div>
+                                </div>
+                                <a class="post-preview post-image" href="{{url('/news/'.$single_news->id)}}"><img style="height: 150px;" src="{{$single_news->news_imageUrl}}" alt=""></a>
+                                <div class="post-desc">
+                                    <a class="post-label" href="{{url('/news/'.$single_news->id)}}">{{--{{$single_news->news_title}}--}}{{substr($single_news->news_title, 0 , 25)}}...</a>
+                                    <div class="post-text">
+                                        {{substr($single_news->news_article, 0 , 300)}} ...
+                                    </div>
+                                    <div class="info-block">
+                                        <a class="btn color-1 size-2 hover-1" href="{{url('/news/'.$single_news->id)}}">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

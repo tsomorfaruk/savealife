@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="be-drop-down login-user-down">
-                            <img class="login-user" src="{{asset('').Auth::user()->imageUrl}}" style=" height: 40px; width: 40px;" alt="">
+                            <img class="login-user" src="{{asset('').Auth::user()->imageUrl}}" style=" height: 35px; width: 35px;" alt="">
                             <span class="be-dropdown-content">Hi, <span>{{Auth::user()->name}}</span></span>
                             <div class="drop-down-list a-list">
                                 <a href="{{url('/my-profile')}}">My Profile</a>

@@ -14,15 +14,15 @@
                             <a class="be-ava-user style-2" href="{{url('/my-profile')}}">
                                 <img src="{{asset('').Auth::user()->imageUrl}}" alt="">
                             </a>
-                            <a class="be-ava-left btn size-2 hover-1" style="background-color: #72ff68 " href="{{url('/my-profile/edit')}}"><i
+                            <a class="be-ava-left btn size-2 hover-1" style="background-color: #40e6ef " href="{{url('/my-profile/edit')}}"><i
                                         class="fa fa-pencil"></i>Edit</a>
                             <div class="be-ava-right btn btn-share size-2 hover-7" style="background-color: #6a9ef2;">
                                 <i class="f1e0 fa fa-share-alt"></i>share
                                 <div class="share-buttons">
-                                    <a class="color-1" href="page1.html"><i class="fa fa-facebook"></i> 278</a>
-                                    <a class="color-2" href="page1.html"><i class="fa fa-twitter"></i> 180</a>
-                                    <a class="color-3" href="page1.html"><i class="fa fa-pinterest-p"></i> 78</a>
-                                    <a class="color-4" href="page1.html"><i class="fa fa-linkedin"></i> 53</a>
+                                    <a class="color-1" href="#" target="_blank"><i class="fa fa-facebook"></i> 278</a>
+                                    <a class="color-2" href="#" target="_blank"><i class="fa fa-twitter"></i> 180</a>
+                                    <a class="color-3" href="#" target="_blank"><i class="fa fa-pinterest-p"></i> 78</a>
+                                    <a class="color-4" href="#" target="_blank"><i class="fa fa-linkedin"></i> 53</a>
                                 </div>
                             </div>
                             <h4 style="color: #00E466; text-align: center; margin-bottom: 10px">{{ Session::get('message') }}</h4>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -24,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('home',['users'=>$users]);
+        //$users = User::all();
+        $news = News::orderBy('created_at', 'DESC')->take(3)->get();
+        return view('home',['news'=>$news]);
     }
 
 

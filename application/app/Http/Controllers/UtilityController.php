@@ -34,7 +34,7 @@ class UtilityController extends Controller
 
     public function news()
     {
-        $news = News::all();
+        $news = News::paginate(10);
         return view('utility.news', ['news'=>$news]);
     }
 

@@ -3693,3 +3693,7 @@ body .login-user-down:hover {
     background: transparent !important;
 }
 
+.team-img-design:hover
+{
+    transform: scale(1.20);
+}
