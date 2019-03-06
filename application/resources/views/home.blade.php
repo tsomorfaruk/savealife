@@ -8,7 +8,7 @@
     <div id="content-block">
         <br>
         <br>
-        <p>{{ Session::get('message') }}</p>
+
         <div class="container-fluid cd-main-content custom-container">
             <div class="row">
                 <div class="col-md-10 text-center" style="float: none; margin: 0 auto">
@@ -96,6 +96,15 @@
                             </select>
                             <input type="submit" class="be-drop-down" name="submit" value="Search">
                         </form>
+                    </div>
+                </div>
+
+                <div class="custom-container gallery-container">
+                    <div class="container">
+                            <div class="gallery-info">
+                                <h3 style="text-align: center"><p>{{ Session::get('message') }}</p></h3>
+                            </div>
+
                     </div>
                 </div>
             </div>
