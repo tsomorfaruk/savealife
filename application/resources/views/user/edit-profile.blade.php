@@ -6,6 +6,15 @@
             <div class="row">
                 <div class="col-xs-8 col-md-8 _editor-content_">
                     <div class="sec" data-sec="basic-information">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="be-large-post">
                             <form method="POST" action="{{url('/my-profile/edit')}}" enctype="multipart/form-data">
                                 @csrf
@@ -16,7 +25,7 @@
                                 <div class="be-large-post-align">
                                     <div class="be-change-ava">
                                         <a class="be-ava-user style-2" href="#" style="float: left;">
-                                            <img src="{{asset('/')}}assets/img/ava_10.jpg" alt="">
+                                            <img src="{{asset('/').Auth::user()->imageUrl}}" alt="">
                                         </a>
                                         <input type="file" style="float: left;" class="btn color-4 size-2 hover-7" value="Insert Image" name="image">
                                         <div class="clearfix"></div>
@@ -42,7 +51,7 @@
                                         <div class="input-col col-xs-12 col-sm-6">
                                             <div class="form-label">City</div>
                                             <select name="city" class="be-custom-select" required>
-                                                <option class="filter" value="{{Auth::user()->city}}" disabled selected>{{Auth::user()->city}}</option>
+                                                <option class="filter" value="{{Auth::user()->city}}">{{Auth::user()->city}}</option>
                                                 <option value="Bagerhat">Bagerhat</option>
                                                 <option value="Bandarban">Bandarban</option>
                                                 <option value="Barguna">Barguna</option>
@@ -115,7 +124,7 @@
                                             <div class="form-group focus-2">
                                                 <div class="form-label">Blood Group</div>
                                                 <select name="blood_group" class="be-custom-select" required>
-                                                    <option class="filter" value="{{Auth::user()->blood_group}}" disabled selected>{{Auth::user()->blood_group}}</option>
+                                                    <option class="filter" value="{{Auth::user()->blood_group}}">{{Auth::user()->blood_group}}</option>
                                                     <option value="A+">A+</option>
                                                     <option  value="A-">A-</option>
                                                     <option value="B+">B+</option>
@@ -137,7 +146,7 @@
 
                                         <div class="input-col col-xs-12">
                                             <button type="submit" class="btn full size-1 hover-1"
-                                                    style="background-color: #ff0f1b">Update Profile
+                                                    style="background-color: #ff3d57">Update Profile
                                             </button>
                                         </div>
                                     </div>

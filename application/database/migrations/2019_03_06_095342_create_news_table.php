@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostDonorsTable extends Migration
+class CreateNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePostDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_donors', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id');
-            $table->integer('donor_id');
-            $table->boolean('status');
-            $table->integet('request_by')->nullable();
+            $table->string('news_title');
+            $table->longText('news_article');
+            $table->string('news_created_by');
+            $table->timestamp('news_created_at');
+            $table->string('news_imageUrl');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreatePostDonorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_donors');
+        Schema::dropIfExists('news');
     }
 }

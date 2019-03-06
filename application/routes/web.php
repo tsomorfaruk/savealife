@@ -16,7 +16,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
-Route::get('/organization','OrganizationController@index');
+Route::get('/organization','UtilityController@organization');
+Route::get('/news','UtilityController@news');
+Route::get('/news/{id}','UtilityController@fullNews');
 Route::get('/my-profile', 'ProfileController@index');
 Route::get('/my-profile/edit', 'ProfileController@editProfile');
 Route::post('/my-profile/edit', 'ProfileController@updateProfile');

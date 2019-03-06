@@ -8,6 +8,7 @@
     <div id="content-block">
         <div class="container be-detail-container">
             <div class="block">
+                <h3 style="color: #00a157; text-align: center; margin-bottom: 10px">{{ Session::get('contact_message') }}</h3>
                 <h2 class="content-title">Contact Information</h2>
                 <div class="block-subtitle">Class aptent taciti sociosqu ad litora torquent per conubia nostra</div>
                 <div class="contact-info block">
@@ -53,36 +54,37 @@
                 <h2 class="content-title">Leave a message</h2>
                 <div class="block-subtitle">Maecenas et mollis ligula. Donec finibus feugiat laoreet.</div>
                 <div class="contect-form">
+
                     <form class="form-block" method="POST" action="{{url('/contact-us')}}">
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
                                 <div class="form-group fl_icon">
-                                    <div class="icon"><img src="{{asset()}}img/user-g-ico.png" alt=""></div>
-                                    <input class="form-input" type="text" required="" placeholder="Your name">
+                                    <div class="icon"><img src="{{asset('/')}}assets/img/user-g-ico.png" alt=""></div>
+                                    <input class="form-input" type="text" name="name" required="" placeholder="Your name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 fl_icon">
                                 <div class="form-group fl_icon">
                                     <div class="icon"><img src="img/subject-ico.png" alt=""></div>
-                                    <input class="form-input" type="text" required="" placeholder="Subject">
+                                    <input class="form-input" type="text" name="subject" required="" placeholder="Subject">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 fl_icon">
                                 <div class="form-group fl_icon">
                                     <div class="icon"><img src="img/mail-g-ico.png" alt=""></div>
-                                    <input class="form-input" type="text" required="" placeholder="Your email">
+                                    <input class="form-input" type="email" name="email" required="" placeholder="Your email">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 fl_icon">
                                 <div class="form-group fl_icon">
                                     <div class="icon"><img src="img/phone-g-ico.png" alt=""></div>
-                                    <input class="form-input" type="text" required="" placeholder="Your phone">
+                                    <input class="form-input" type="text" name="mobile" required="" placeholder="Your phone">
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <textarea class="form-input" required="" placeholder="Your message"></textarea>
+                                    <textarea class="form-input" required="" name="message" placeholder="Your message"></textarea>
                                 </div>
                             </div>
                             <button class="btn color-1 size-2 hover-1 pull-right">submit</button>

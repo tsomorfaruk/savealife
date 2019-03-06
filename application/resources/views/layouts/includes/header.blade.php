@@ -116,6 +116,7 @@
                     <li><a href="{{url('/blood-post')}}">Blood Post</a></li>
                     <li><a href="#">Top Donor</a></li>
                     <li><a href="{{url('/organization')}}">Organization</a></li>
+                    <li><a href="{{url('/news')}}">News</a></li>
                     <li><a href="{{url('/contact-us')}}">Contact us</a></li>
                     <li><a href="{{url('/team')}}">Team</a></li>
                 </ul>

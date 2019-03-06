@@ -65,6 +65,7 @@ class PostController extends Controller
         $postdonor->post_id = $post_id;
         $postdonor->donor_id = $id;
         $postdonor->status = 1;
+        $postdonor->request_by = Auth::user()->id;
         $postdonor->save();
 
         echo json_encode($post_id);
@@ -144,6 +145,7 @@ class PostController extends Controller
         $postdonor->donor_id = $donor_id;
         $postdonor->post_id = $post_id;
         $postdonor->status = 2;
+        $postdonor->request_by = $donor_id;
         $postdonor->save();
         echo json_encode($donor_id);
     }

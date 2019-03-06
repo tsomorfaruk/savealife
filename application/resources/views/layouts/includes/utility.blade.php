@@ -1,3 +1,4 @@
+{{--
 <div class="theme-config">
     <div class="main-color">
         <div class="title">Main Color:</div>
@@ -14,4 +15,4 @@
         </div>
     </div>
     <div class="open"><img src="{{asset('/')}}assets/img/icon-134.png" alt=""></div>
-</div>
+</div>--}}
