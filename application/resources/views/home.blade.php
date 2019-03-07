@@ -5,7 +5,6 @@
 @section('content')
     <div id="content-block">
         <br>
-
         <div class="container-fluid cd-main-content custom-container">
             <div class="row">
                 <div class="col-md-10 text-center" style="float: none; margin: 0 auto">

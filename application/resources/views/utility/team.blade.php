@@ -21,7 +21,7 @@
                             </div>
                             <div class="team-social">
                                 <a href="https://www.facebook.com/atikur.rahman.376"><i class="fa fa-facebook"></i></a>
-                                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
                             </div>
                         </div>

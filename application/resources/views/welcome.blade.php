@@ -106,24 +106,25 @@
 
 
 @section('content')
-    <div id="content-block">
-        <div class="head-bg">
-            <div class="head-bg-img"></div>
-            <div class="head-bg-content">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <h1>Save A Life</h1>
-                <p>Donate Blood, Save A Life</p>
-                <a class="btn color-1 size-1 hover-1"><i class="fa fa-facebook"></i>sign up via facebook</a>
-                <a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-lock"></i>sign up now</a>
-            </div>
+    <div class="head-bg">
+        <div class="head-bg-img"></div>
+        <div class="head-bg-content">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <h1>Save A Life</h1>
+            <p>Donate Blood, Save A Life</p>
+            <a class="btn color-1 size-1 hover-1"><i class="fa fa-facebook"></i>sign up via facebook</a>
+            <a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-lock"></i>sign up now</a>
         </div>
     </div>
+    {{--<div id="content-block">
+
+    </div>--}}
 @endsection

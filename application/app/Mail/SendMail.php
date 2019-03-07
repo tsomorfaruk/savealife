@@ -29,7 +29,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('name');
+        return $this->view('otp.name');
     }
 }
 

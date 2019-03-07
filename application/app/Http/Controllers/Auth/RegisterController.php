@@ -82,6 +82,7 @@ class RegisterController extends Controller
             'city' => $data['city'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
+            'imageUrl' => 'assets/userImage/demo_image.jpg',
             'password' => Hash::make($data['password']),
             'otp' => $twf,
 

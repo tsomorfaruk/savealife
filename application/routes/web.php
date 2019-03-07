@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
 Route::get('/organization','UtilityController@organization');
+Route::get('/terms-of-use','UtilityController@terms');
 Route::get('/news','UtilityController@news');
 Route::get('/news/{id}','UtilityController@fullNews');
 Route::get('/my-profile', 'ProfileController@index');
@@ -24,9 +25,7 @@ Route::get('/my-profile/edit', 'ProfileController@editProfile');
 Route::post('/my-profile/edit', 'ProfileController@updateProfile');
 Route::get('/contact-us', 'UtilityController@contactUs');
 Route::post('/contact-us', 'UtilityController@storeContact');
-Route::get('/team', function (){
-    return view('team');
-});
+Route::get('/team', 'UtilityController@team');
  
 Route::group(['middleware'=>'otp'], function ()
 {
@@ -53,7 +52,7 @@ Route::group(['middleware'=>'NotOtp'], function ()
 {
 
     Route::get('/verification', function () {
-        return view('two_factor');
+        return view('otp.two_factor');
     });
     Route::post('/otpverification', 'VerefyController@verification')->name('otpverification');
     Route::post('/resend', 'VerefyController@resend')->name('resend');

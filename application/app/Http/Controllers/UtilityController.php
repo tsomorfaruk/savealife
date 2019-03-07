@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\News;
+use App\Organization;
 use Illuminate\Http\Request;
 
 class UtilityController extends Controller
@@ -12,7 +13,7 @@ class UtilityController extends Controller
 
     public function contactUs()
     {
-        return view('contact-us');
+        return view('utility.contact-us');
     }
 
     public function storeContact(Request $request)
@@ -29,7 +30,8 @@ class UtilityController extends Controller
 
     public function organization()
     {
-        return view('organization');
+        $organizations = Organization::all();
+        return view('utility.organization', ['organizations'=> $organizations]);
     }
 
     public function news()
@@ -43,5 +45,15 @@ class UtilityController extends Controller
 
         $news =News::find($id);
         return view('utility.full-news',['news'=>$news]);
+    }
+
+    public function terms()
+    {
+        return view('utility.terms-of-use');
+    }
+
+    public function team()
+    {
+        return view('utility.team');
     }
 }

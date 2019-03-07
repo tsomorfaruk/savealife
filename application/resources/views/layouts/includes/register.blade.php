@@ -126,15 +126,7 @@
                                     <input class="checkbox-input" type="checkbox" required="" value="" > <span class="check-box-sign"></span>
                                 </label>
                                 <span class="large-popup-text">
-									I have read and agree to the <a class="be-popup-terms" href="blog-detail-2.html">Terms of Use</a> and <a class="be-popup-terms" href="blog-detail-2.html">Privacy Policy</a>.
-								</span>
-                            </div>
-                            <div class="be-checkbox">
-                                <label class="check-box">
-                                    <input class="checkbox-input" type="checkbox" value="" > <span class="check-box-sign"></span>
-                                </label>
-                                <span class="large-popup-text">
-									Send me notifications
+									I have read and agree to the <a class="be-popup-terms" href="{{url('/terms-of-use')}}">Terms of Use.</a>.
 								</span>
                             </div>
                         </div>

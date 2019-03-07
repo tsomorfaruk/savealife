@@ -121,7 +121,8 @@ class PostController extends Controller
         $user_id = Auth::user()->id;
         $posts = Post::where('user_id', '!=', $user_id)
             ->where('status', '=', '1')
-            ->with(['post_user', 'donors'])->get();
+            ->with(['post_user'])->get();
+
         return view('blood-post', ['posts' => $posts]);
     }
 

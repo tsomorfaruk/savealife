@@ -354,11 +354,11 @@ header .header-menu > #ad-work-li {position: static; float: right;margin-top: 20
 	02 - HEADER BACKGROUND
 ==================================
 */
-.head-bg { background: #000; position: relative; padding: 10px; margin-bottom: 50px; }
+.head-bg { background: #000; position: relative; padding: 10px; min-height: 590px; }
 
 .head-bg-img { position: absolute; left: 0; top: 0; background: url(../img/blood1.jpg); height: 100%; width: 100%; background-size: cover; opacity: 0.2; z-index: 1; background-position: center center; }
 
-.head-bg-content { height: 400px; text-align: center; position: relative; z-index: 200; display: table-cell; vertical-align: middle; width: 5000px; }
+.head-bg-content { height: 500px; text-align: center; position: relative; z-index: 200; display: table-cell; vertical-align: middle; width: 5000px; }
 
 #content-block .head-bg-content .btn { margin-bottom: 10px; }
 
@@ -387,7 +387,7 @@ header .header-menu > #ad-work-li {position: static; float: right;margin-top: 20
 	03 - MAIN
 ==================================
 */
-#content-block { margin-top: 70px; margin-bottom: 50px; min-height: calc(100vh - 187px)}
+#content-block { margin-top: 90px; margin-bottom: 30px; min-height: calc(100vh - 187px)}
 
 .for-be-dropdowns .be-drop-down { display: inline-block; margin-bottom: 50px; margin-right: 30px; }
 .for-be-dropdowns:focus {
@@ -788,7 +788,7 @@ ul.link-list li > a:hover { color: #FFF !important; }
 
 span.white a { color: #FFF; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-span.white a:hover { color: #337ab7; }
+span.white a:hover { color: #ff637a; }
 
 span.left { text-align: left; }
 
@@ -853,7 +853,7 @@ span.right { float: right; }
 
 .close-button, .message-popup .fa.close-button { position: absolute; top: -5px; color: #FFF; display: block; width: 25px; height: 25px; background: #ff637a; font-size: 14px; text-align: center; padding-top: 5px; cursor: pointer; border-radius: 2px; }
 
-.close-button:hover { background: #0040b0; }
+.close-button:hover { background: #d12553; }
 
 .check-box { position: relative; display: inline-block; width: 20px; height: 20px; display: inline-block; background: #FFF; border-radius: 2px; border: 1px solid #000; cursor: pointer; transform: translateY(8px); -webkit-transform: translateY(8px); -moz-transform: translateY(8px); -ms-transform: translateY(8px); }
 
@@ -872,7 +872,7 @@ span.right { float: right; }
 
 .be-popup-sign-button { float: right; color: #FFF; padding: 15px 30px; background: #ff637a; font-size: 14px; border: none; border-radius: 2px; }
 
-.be-popup-sign-button:hover { background: #0040b0; }
+.be-popup-sign-button:hover { background: #d12553; }
 
 .be-date-block .large-popup-tex { display: block; }
 
@@ -2316,7 +2316,7 @@ min-height: 0;}
   content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
-.large-popup-text .be-popup-terms{text-decoration: underline;}
+.large-popup-text .be-popup-terms{text-decoration: underline; color: #ff637a}
 @media screen and (min-width: 120px){
 .be-large-post .be-largepost-iframe{margin: 0 -66px;}}
 .swiper-arrow-left.type-2, .swiper-arrow-right.type-2{

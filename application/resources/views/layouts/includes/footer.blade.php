@@ -7,9 +7,9 @@
                     <span class="created">Created with LOVE by <span class="white"><a href="#"> SaveALife</a></span></span>
                 </div>
                 <div class="right">
-                    <a class="btn color-7 size-2 hover-9">About Us</a>
-                    <a class="btn color-7 size-2 hover-9">Help</a>
-                    <a class="btn color-7 size-2 hover-9">Privacy Policy</a>
+                    <a class="btn color-7 size-2 hover-9" href="{{url('/team')}}">About Us</a>
+                    <a class="btn color-7 size-2 hover-9" href="{{url('/contact-us')}}">Contact us</a>
+                    <a class="btn color-7 size-2 hover-9" href="{{url('/terms-of-use')}}">Terms of Use</a>
                 </div>
             </div>
         </div>
