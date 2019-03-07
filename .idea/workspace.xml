@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9384b76-079c-434c-9c89-d51d694541d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/resources/views/utility/terms-of-use.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/organizationImage/organization_image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/organizationImage/organization_image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/userImage/demo_image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Http/Controllers/NewsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Http/Controllers/OrganizationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Http/Controllers/UtilityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/Http/Controllers/UtilityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/Mail/SendMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/Mail/SendMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/blood-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/blood-post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/contact-us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/utility/contact-us.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/layouts/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/layouts/includes/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/layouts/includes/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/layouts/includes/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/layouts/includes/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/layouts/includes/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/layouts/includes/style.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/layouts/includes/style.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/name.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/otp/name.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/organization.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/utility/organization.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/utility/team.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/two_factor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/otp/two_factor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/style/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/stylesheet.css" afterDir="false" />
-    </list>
+    <list default="true" id="d9384b76-079c-434c-9c89-d51d694541d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,12 +339,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551935393902</updated>
-      <workItem from="1551935396281" duration="16526000" />
+      <workItem from="1551935396281" duration="16840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16526000" />
+    <option name="totallyTimeSpent" value="16840000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
