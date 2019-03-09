@@ -34,7 +34,8 @@ class PostController extends Controller
             $post->quantity = '';
             $post->status = 1;
             $post->save();
-            $posts = Post::where('user_id', '=', $user_id)->get();
+            $posts = Post::where('user_id', '=', $user_id)
+                ->where('status', '1')->get();
             $search_donor = User::where('blood_group', '=', $request->blood_group)
                 ->where('city', '=', $request->city)
                 ->where('id', '!=', $user_id)->get();

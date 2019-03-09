@@ -99,7 +99,7 @@
                 <div class="col-md-10 col-md-push-2">
                     <div id="container-mix" class="be-user-wrapper row">
                         @foreach($search_donor as $donor)
-                            @foreach($posts as $post)
+
                                 <div class="mix category-4 custom-column-5">
                                     <div class="be-user-block style-2">
                                         <a class="be-ava-user style-2" href="#">
@@ -114,11 +114,11 @@
                                             <div class="be-text-tags">
                                             <h3 style="color: #f00;"><b>{{$donor->blood_group}}</b></h3>
                                         </div>
-                                        <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
+                                        <input type="hidden" name="post_id" id="post_id" value="@foreach($posts as $post){{$post->id}}@endforeach">
                                         <a class="btn color-1 size-2 hover-1 search-donor" href="#" id="{{$donor->id}}">Request</a>
                                     </div>
                                 </div>
-                            @endforeach
+
                         @endforeach
                     </div>
                 </div>
